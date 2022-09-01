@@ -14,9 +14,11 @@ import "swiper/css/pagination";
 
 import "./styles.scss"
 
+import "../../img/managers.png"
+
 import { Navigation, Pagination, Autoplay } from "swiper";
 
-const Project1 = lazy(() => import("../projects/Project1"))
+const Project = lazy(() => import("../generic/Project"))
 
 function Projects(props: {}) {
 
@@ -36,10 +38,7 @@ function Projects(props: {}) {
 
     return (
         <Swiper pagination={pagination} autoplay = {{delay: 8000, disableOnInteraction: false }} slidesPerView = {1} navigation={true} modules={[Navigation, Pagination, Autoplay]} className="mySwiper">
-            <SwiperSlide> <Project1/> </SwiperSlide>
-            <SwiperSlide> <Project1/> </SwiperSlide>
-            <SwiperSlide> <Project1/> </SwiperSlide>
-            <SwiperSlide> <Project1/> </SwiperSlide>
+            <SwiperSlide> <Project name = "Data Managers Inc" img = "../../img/managers.png" creator = "test" points = {["Android based app", "Assist sales people at the register identify items", "Use voice or text to look up their inventory"]}/> </SwiperSlide>
         </Swiper>
     )
 }
