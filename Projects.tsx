@@ -12,9 +12,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import "./styles.scss"
-
-
 
 import { Navigation, Pagination, Autoplay } from "swiper";
 
@@ -38,8 +35,8 @@ function Projects(props: {}) {
 
     return (
         <Swiper pagination={pagination} autoplay = {{delay: 8000, disableOnInteraction: false }} slidesPerView = {1} navigation={true} modules={[Navigation, Pagination, Autoplay]} className="mySwiper">
-            <SwiperSlide> <Project name = "Data Managers Inc" img = {require("../../img/image1.png")} creator = "test" points = {["Android based app", "Assist sales people at the register identify items", "Use voice or text to look up their inventory"]}/> </SwiperSlide>
-            <SwiperSlide> <Project name = "DMV Hours Tracker" img = {require("../../img/image7.png")} creator = "test" points = {["iOS based app", "Coded in React-Native using Expo", "Utilizes Google Firebase backend to authenticate users, reset passwords, and store user data"]}/> </SwiperSlide>
+            <SwiperSlide> <Project name = "Data Managers Inc" img = {require("../../img/image1.png")} creator = "test" points = {["Android based app using Java?", "Helps sales people at the register identify items", "Users are able to use theier voice or text to look up inventory data"]}/> </SwiperSlide>
+            <SwiperSlide> <Project name = "DMV Hours Tracker" img = {require("../../img/image7.png")} creator = "test" points = {["iOS based app coded in React-Native using Expo", "Utilizes Google Firebase backend to authenticate users, reset passwords, and store user data"]}/> </SwiperSlide>
         </Swiper>
     )
 }
