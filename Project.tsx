@@ -7,7 +7,6 @@ import { useTheme } from "./ThemeContext";
 import { useNavigate } from "react-router-dom";
 
 import "../../img/image1.png"
-import "../../img/image7.png"
 
 function Project(props: {name: string, img: string, creator: string, points: string[]}) {
 
@@ -26,7 +25,7 @@ function Project(props: {name: string, img: string, creator: string, points: str
                     >
 
                         <div className="h0 oxanium bold col-cc" style={{
-                            backgroundImage: "url(\"https://campussuite-storage.s3.amazonaws.com/prod/1059662/301794b6-30da-11e7-9e05-124f7febbf4a/1811609/d77e7936-9ff2-11e8-8fd6-120544974b42/optimizations/1\")",
+        
                             backgroundSize: "100% auto",
                             backgroundPosition: "50% 50%",
                         }}>
@@ -44,11 +43,7 @@ function Project(props: {name: string, img: string, creator: string, points: str
                             <ul className="oxanium h3">
                                 {props.points.map((object, i) => <li> {object} </li>)}
                             </ul>
-                            {/* <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5908.8370370839875!2d-87.949139!3d42.226871!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880f9619efb8b969%3A0x43438e5e609847e1!2s145%20Lakeview%20Pkwy%2C%20Vernon%20Hills%2C%20IL%2060061!5e0!3m2!1sen!2sus!4v1656493321759!5m2!1sen!2sus"
-                                style={{ border: 0 }} allowFullScreen={false} loading="lazy"
-                                // referrerPolicy="no-referrer-when-downgrade" /> */}
-                                <img src = {props.img} width = {"250px"} height = {"250px"} />
+                                <img src = {props.img} />
                         </div>
                         <motion.div tabIndex={0} onClick={() => window.open("mailto:drshika.asher@vhhscougars.org")} className="click-to col-cc oxanium h6 bold w-100 text-centered" whileHover={{ boxShadow: "0 0 1rem white" }}>
                             Click to contact Drshika Asher (drshika.asher@vhhscougars.org) for more information.
