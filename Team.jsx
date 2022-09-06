@@ -26,7 +26,7 @@ function Team(props: {}) {
     const navigate = useNavigate()
 
     const layout = [
-        { i: "a", x: 0, y: 0, w: 1, h: 1 },
+        { i: "a", x: 0, y: 0, w: 1, h: 1, static: true },
         { i: "b", x: 1, y: 0, w: 1, h: 1 },
         { i: "c", x: 2, y: 0, w: 1, h: 1 },
         { i: "d", x: 0, y: 1, w: 1, h: 1 },
@@ -68,7 +68,9 @@ function Team(props: {}) {
                         margin = {[20, 20]}
                     >
                         <div key="a">
+                            <a href = "https://en.wikipedia.org/wiki/Bill_Gates">
                             <img src = {require("../../img/bill.jpg")} />
+                            </a>
                             <figcaption className = "name oxanium bold"> Bill Gates </figcaption>
                             <figcaption className = "caption oxanium"> Co-founder of Microsot, super rich. I need two lines right now. </figcaption>
                         </div>
