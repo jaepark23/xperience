@@ -12,6 +12,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
+import "../../scss/swiper.scss"
 
 import { Navigation, Pagination, Autoplay } from "swiper";
 
@@ -34,9 +35,11 @@ function Projects(props: {}) {
     }, [])
 
     return (
-        <Swiper pagination={pagination} autoplay = {{delay: 8000, disableOnInteraction: false }} slidesPerView = {1} navigation={true} modules={[Navigation, Pagination, Autoplay]} className="mySwiper">
-            <SwiperSlide> <Project name = "Data Managers Inc" img = {require("../../img/image1.png")} creator = "test" points = {["Android based app using Java?", "Helps sales people at the register identify items", "Users are able to use theier voice or text to look up inventory data"]}/> </SwiperSlide>
-            <SwiperSlide> <Project name = "DMV Hours Tracker" img = {require("../../img/image7.png")} creator = "test" points = {["iOS based app coded in React-Native using Expo", "Utilizes Google Firebase backend to authenticate users, reset passwords, and store user data"]}/> </SwiperSlide>
+        // 1100x1200 resolution for images 
+        <Swiper pagination={pagination} loop={true} autoplay = {{delay: 8000, disableOnInteraction: false }} slidesPerView = {1} navigation={true} modules={[Navigation,  Autoplay]} className="mySwiper">
+            <SwiperSlide> <Project name = "Data Managers Inc" img = {require("../../img/image1.png")} creator = "test" points = {["Android based app coded using Java?", "Helps sales people at register identify items", "Users are able to their voice or text to look up their inventory"]}/> </SwiperSlide>
+            <SwiperSlide> <Project name = "DMV Hours Tracker" img = {require("../../img/image7.png")} creator = "test" points = {["iOS based app coded using React-Native and Expo", "Helps students track driving hours for their license", "Utilizes Firebase backend to authenticate users and store user data"]}/> </SwiperSlide> 
+    
         </Swiper>
     )
 }
