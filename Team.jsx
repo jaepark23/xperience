@@ -64,38 +64,48 @@ function Team(props: {}) {
                         cols={3}
                         rowHeight={360}
                         width={1335}
-                        containerPadding = {[20, -10]}
-                        margin = {[20, 20]}
+                        containerPadding={[20, -10]}
+                        margin={[20, 20]}
                     >
                         <div key="a">
-                            <a href = "https://en.wikipedia.org/wiki/Bill_Gates">
-                            <img src = {require("../../img/bill.jpg")} />
-                            </a>
-                            <figcaption className = "name oxanium bold"> Bill Gates </figcaption>
-                            <figcaption className = "caption oxanium"> Co-founder of Microsot, super rich. I need two lines right now. </figcaption>
+                            <div className='profile'>
+                                <a href="https://en.wikipedia.org/wiki/Bill_Gates">
+                                    <img src={require("../../img/bill.jpg")} />
+                                </a>
+                                <figcaption className="name oxanium bold"> Bill Gates </figcaption>
+                                <figcaption className="caption oxanium"> Co-founder of Microsot, super rich. I need two lines right now. </figcaption>
+                            </div>
                         </div>
                         <div key="b">
-                            <img src = {require("../../img/lueken.jpg")} />
-                            <figcaption className = "name oxanium bold"> Mr. Lueken </figcaption>
-                            <figcaption className = "caption oxanium"> Award winning Mr. Lueken. Fluent at everything. </figcaption>
+                            <div className='profile'>
+                                <img src={require("../../img/lueken.jpg")} />
+                                <figcaption className="name oxanium bold"> Mr. Lueken </figcaption>
+                                <figcaption className="caption oxanium"> Award winning Mr. Lueken. Fluent at everything. </figcaption>
+                            </div>
                         </div>
                         <div key="c">
-                            <img src = {require("../../img/tim.jpg")} />
-                            <figcaption className = "name oxanium bold"> Tim Cook </figcaption>
-                            <figcaption className = "caption oxanium"> Co-founder at Apple, good at making phone related stuff</figcaption>
+                            <div className='profile'>
+                                <img src={require("../../img/tim.jpg")} />
+                                <figcaption className="name oxanium bold"> Tim Cook </figcaption>
+                                <figcaption className="caption oxanium"> Co-founder at Apple, good at making phone related stuff</figcaption>
+                            </div>
                         </div>
                         <div key="d">
-                            <img src = {require("../../img/mark.jpg")} />
-                            <figcaption className = "name oxanium bold"> Mark Zuckerberg </figcaption>
-                            <figcaption className = "caption oxanium"> CEO of Facebook or META, lizard man lizard man </figcaption>
+                            <div className='profile'>
+                                <img src={require("../../img/mark.jpg")} />
+                                <figcaption className="name oxanium bold"> Mark Zuckerberg </figcaption>
+                                <figcaption className="caption oxanium"> CEO of Facebook or META, lizard man lizard man </figcaption>
+                            </div>
                         </div>
                         <div key="e">
-                            <img src = {require("../../img/elon.jpg")} />
-                            <figcaption className = "name oxanium bold"> Elon Musk </figcaption>
-                            <figcaption className = "caption oxanium"> CEO of Tesla and SpaceX. Fluent in everything. </figcaption>
+                            <div className='profile'>
+                                <img src={require("../../img/elon.jpg")} />
+                                <figcaption className="name oxanium bold"> Elon Musk </figcaption>
+                                <figcaption className="caption oxanium"> CEO of Tesla and SpaceX. Fluent in everything. </figcaption>
+                            </div>
                         </div>
                     </GridLayout>
-                    
+
                     {/* <div className="list row-bc">
                     <div className= "img-with-text">
                         <img src = {require("../../img/bill.jpg")} />
