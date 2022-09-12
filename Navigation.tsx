@@ -11,7 +11,8 @@ const data = [
     ["Coding", "/coding"],
     ["Consulting", "/consulting"],
     ["Projects", "/projects"],
-    ["Users", "/users"]
+    ["Team", "/team"],
+    ["Test", "/test"]
 ]
 
 const menuItems = [
