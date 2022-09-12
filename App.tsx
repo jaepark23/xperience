@@ -9,7 +9,9 @@ const Layout = lazy(() => import("./components/layout/Layout"))
 const Coding = lazy(() => import("./components/pages/Coding"))
 const Consulting = lazy(() => import("./components/pages/Consulting"))
 const Projects = lazy(() => import("./components/pages/Projects"))
-const Users = lazy(() => import("./components/pages/Users"))
+const Team = lazy(() => import("./components/pages/Team"))
+const Test = lazy(() => import("./components/pages/Test"))
+
 
 function App() {
       return (
@@ -23,7 +25,8 @@ function App() {
                                   <Route path={"/coding"} element={<Coding />} />
                                   <Route path={"/consulting"} element={<Consulting />} />
                                   <Route path={"/projects"} element={<Projects />} />
-                                  <Route path={"/users"} element={<Users />} />
+                                  <Route path={"/team"} element={<Team />} />
+                                  <Route path={"/test"} element={<Test />} />
                               </Routes>
                           </Layout>
                       </AuthProvider>
