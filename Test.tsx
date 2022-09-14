@@ -5,11 +5,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Anim } from "../../Animation";
 import { useTheme } from "../generic/ThemeContext";
 import { useNavigate } from "react-router-dom";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-
-
-
 
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -19,10 +14,25 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import ListItem from "@mui/material/ListItem";
 
+import GridLayout from "react-grid-layout";
+
+
 function Test(props: {}) {
 
+    const [checked, setChecked] = useState(false)
     const theme = useTheme()
     const navigate = useNavigate()
+
+    const layout = [
+        { i: "a", x: 0, y: 0, w: 1, h: 1, static: true },
+        { i: "b", x: 1, y: 0, w: 1, h: 1, static: true },
+    ];
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setChecked(event.target.checked);
+    };
+
+
 
     useEffect(() => {
         theme.setLoadState(-2)
@@ -39,7 +49,7 @@ function Test(props: {}) {
                         backgroundSize: "100% auto",
                         backgroundPosition: "50% 50%",
                     }}>
-                        Test
+                        Form
                         <motion.div className="back" tabIndex={0} onClick={() => {
                             theme.setLoadState(-1);
                             setTimeout(() => {
@@ -49,22 +59,87 @@ function Test(props: {}) {
                             {"<"}
                         </motion.div>
                     </div>
-                    <div className="list row-bc">
-                        <ul className="oxanium h3">
+                    
+                    <GridLayout
+                        className="layout"
+                        layout={layout}
+                        cols={2}
+                        rowHeight={360}
+                        width={1335}
+                        containerPadding={[20, -10]}
+                        margin={[20, 20]}
+                    >
+                        <div key="a">
+                            <ListItem alignItems="center">
+                                <FormControlLabel control={<Checkbox style={{
+                                    color: "#FFFFFF"
+                                }} />} label="Sponsor Events?" />
+                            </ListItem>
+
+                            <ListItem alignItems="center">
+                                <FormControlLabel control={<Checkbox style={{
+                                    color: "#FFFFFF"
+                                }} />} label="Need interns/IT support?" />
+                            </ListItem>
+
+                            <ListItem alignItems="center">
+                                <FormControlLabel control={<Checkbox style={{
+                                    color: "#FFFFFF"
+                                }} />} label="Need a project completed?" />
+                            </ListItem>
+
+                            <ListItem alignItems="center">
+                                <FormControlLabel control={<Checkbox style={{
+                                    color: "#FFFFFF"
+                                }} checked={checked} onChange={handleChange} />} label="" />
+                                <TextField
+                                    disabled={!checked}
+                                    label="Other: "
+                                    sx={{ input: { color: 'white' } }}
+                                    InputLabelProps={{
+                                        style: { color: '#fff' },
+                                    }}
+                                />
+                            </ListItem>
+                            </div>
+                            
+                            <div key="b">
+                            <ListItem alignItems="center">
+                                <FormControlLabel control={<Checkbox style={{
+                                    color: "#FFFFFF"
+                                }} />} label="Sponsor Events?" />
+                            </ListItem>
+
+                            <ListItem alignItems="center">
+                                <FormControlLabel control={<Checkbox style={{
+                                    color: "#FFFFFF"
+                                }} />} label="Need interns/IT support?" />
+                            </ListItem>
+
+                            <ListItem alignItems="center">
+                                <FormControlLabel control={<Checkbox style={{
+                                    color: "#FFFFFF"
+                                }} />} label="Need a project completed?" />
+                            </ListItem>
+
+                            <ListItem alignItems="center">
+                                <FormControlLabel control={<Checkbox style={{
+                                    color: "#FFFFFF"
+                                }} checked={checked} onChange={handleChange} />} label="" />
+                                <TextField
+                                    disabled={!checked}
+                                    label="Other: "
+                                    sx={{ input: { color: 'white' } }}
+                                    InputLabelProps={{
+                                        style: { color: '#fff' },
+                                    }}
+                                />
+                            </ListItem>
+                            </div>
+                    </GridLayout>
 
 
-                            <FormGroup>
-                                <FormControlLabel control={<Checkbox />} label="Sponsor Events" />
-                                <FormControlLabel control={<Checkbox />} label="need interns/IT support" />
-                                <FormControlLabel control={<Checkbox />} label="Need projects completed" />
-                                <FormControlLabel control={<Checkbox />} label="Other: " />
-                            </FormGroup>
-                        </ul>
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5908.8370370839875!2d-87.949139!3d42.226871!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880f9619efb8b969%3A0x43438e5e609847e1!2s145%20Lakeview%20Pkwy%2C%20Vernon%20Hills%2C%20IL%2060061!5e0!3m2!1sen!2sus!4v1656493321759!5m2!1sen!2sus"
-                            style={{ border: 0 }} allowFullScreen={false} loading="lazy"
-                            referrerPolicy="no-referrer-when-downgrade" />
-                    </div>
+
                     <motion.div tabIndex={0} onClick={() => window.open("mailto:adam.lueken@d128.org")} className="click-to col-cc oxanium h6 bold w-100 text-centered" whileHover={{ boxShadow: "0 0 1rem white" }}>
                         Click to contact Adam Lueken (adam.lueken@d128.org) for more information.
                     </motion.div>
@@ -75,3 +150,4 @@ function Test(props: {}) {
 }
 
 export default Test;
+
