@@ -238,7 +238,7 @@
       background-color: rgba(255, 255, 255, 0.08);
       border-radius: 2rem;
       overflow: hidden;
-  
+  width: 50rem;
       > *:not(:first-child) {
         margin-top: 2rem;
       }
@@ -310,6 +310,9 @@
         text-align: justify;
       }
   
+      .test {
+        align-items: center;
+      }
       // img:hover {
       //     opacity: 0;
       //     transition:opacity .2s;
