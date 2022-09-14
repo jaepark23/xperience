@@ -16,6 +16,7 @@ import ListItem from "@mui/material/ListItem";
 
 import GridLayout from "react-grid-layout";
 
+import { Container, Row, Col } from 'react-grid-system';
 
 function Test(props: {}) {
 
@@ -31,8 +32,6 @@ function Test(props: {}) {
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setChecked(event.target.checked);
     };
-
-
 
     useEffect(() => {
         theme.setLoadState(-2)
@@ -60,16 +59,10 @@ function Test(props: {}) {
                         </motion.div>
                     </div>
                     
-                    <GridLayout
-                        className="layout"
-                        layout={layout}
-                        cols={2}
-                        rowHeight={360}
-                        width={1335}
-                        containerPadding={[20, -10]}
-                        margin={[20, 20]}
-                    >
-                        <div key="a">
+                    <div className = "test">
+                        <Row justify = "center" debug> 
+                        <Col debug>
+                            <h2> Consulting </h2> 
                             <ListItem alignItems="center">
                                 <FormControlLabel control={<Checkbox style={{
                                     color: "#FFFFFF"
@@ -101,9 +94,18 @@ function Test(props: {}) {
                                     }}
                                 />
                             </ListItem>
-                            </div>
-                            
-                            <div key="b">
+                            {/* <ListItem alignItems="center">
+                            <TextField
+                                    label="Email: "
+                                    sx={{ input: { color: 'white' } }}
+                                    InputLabelProps={{
+                                        style: { color: '#fff' },
+                                    }}
+                                />
+                            </ListItem> */}
+                            </Col>
+                            <Col debug>
+                            <h2> Consulting </h2> 
                             <ListItem alignItems="center">
                                 <FormControlLabel control={<Checkbox style={{
                                     color: "#FFFFFF"
@@ -135,11 +137,10 @@ function Test(props: {}) {
                                     }}
                                 />
                             </ListItem>
-                            </div>
-                    </GridLayout>
-
-
-
+                            </Col>
+                        </Row>
+</div>
+                   
                     <motion.div tabIndex={0} onClick={() => window.open("mailto:adam.lueken@d128.org")} className="click-to col-cc oxanium h6 bold w-100 text-centered" whileHover={{ boxShadow: "0 0 1rem white" }}>
                         Click to contact Adam Lueken (adam.lueken@d128.org) for more information.
                     </motion.div>
@@ -150,4 +151,3 @@ function Test(props: {}) {
 }
 
 export default Test;
-
