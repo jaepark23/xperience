@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, lazy} from "react";
 import "../../scss/core.scss"
 import "../../scss/pages.scss"
 import { AnimatePresence, motion } from "framer-motion";
@@ -6,32 +6,30 @@ import { Anim } from "../../Animation";
 import { useTheme } from "../generic/ThemeContext";
 import { useNavigate } from "react-router-dom";
 
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import List from "@mui/material/List";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import ListItem from "@mui/material/ListItem";
 
-import GridLayout from "react-grid-layout";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import ToggleButton from "@mui/material/ToggleButton";
 
-import { Container, Row, Col } from 'react-grid-system';
+const ConsultingForm = lazy(() => import("../generic/ConsultingForm"))
 
 function Test(props: {}) {
 
-    const [checked, setChecked] = useState(false)
     const theme = useTheme()
     const navigate = useNavigate()
+
+    const [alignment, setAlignment] = useState('consulting')
 
     const layout = [
         { i: "a", x: 0, y: 0, w: 1, h: 1, static: true },
         { i: "b", x: 1, y: 0, w: 1, h: 1, static: true },
     ];
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setChecked(event.target.checked);
-    };
+    const handleChange = (
+        event: React.MouseEvent<HTMLElement>,
+        newAlignment: string,
+      ) => {
+        setAlignment(newAlignment);
+      };
 
     useEffect(() => {
         theme.setLoadState(-2)
@@ -58,89 +56,19 @@ function Test(props: {}) {
                             {"<"}
                         </motion.div>
                     </div>
-                    
-                    <div className = "test">
-                        <Row justify = "center" debug> 
-                        <Col debug>
-                            <h2> Consulting </h2> 
-                            <ListItem alignItems="center">
-                                <FormControlLabel control={<Checkbox style={{
-                                    color: "#FFFFFF"
-                                }} />} label="Sponsor Events?" />
-                            </ListItem>
-
-                            <ListItem alignItems="center">
-                                <FormControlLabel control={<Checkbox style={{
-                                    color: "#FFFFFF"
-                                }} />} label="Need interns/IT support?" />
-                            </ListItem>
-
-                            <ListItem alignItems="center">
-                                <FormControlLabel control={<Checkbox style={{
-                                    color: "#FFFFFF"
-                                }} />} label="Need a project completed?" />
-                            </ListItem>
-
-                            <ListItem alignItems="center">
-                                <FormControlLabel control={<Checkbox style={{
-                                    color: "#FFFFFF"
-                                }} checked={checked} onChange={handleChange} />} label="" />
-                                <TextField
-                                    disabled={!checked}
-                                    label="Other: "
-                                    sx={{ input: { color: 'white' } }}
-                                    InputLabelProps={{
-                                        style: { color: '#fff' },
-                                    }}
-                                />
-                            </ListItem>
-                            {/* <ListItem alignItems="center">
-                            <TextField
-                                    label="Email: "
-                                    sx={{ input: { color: 'white' } }}
-                                    InputLabelProps={{
-                                        style: { color: '#fff' },
-                                    }}
-                                />
-                            </ListItem> */}
-                            </Col>
-                            <Col debug>
-                            <h2> Consulting </h2> 
-                            <ListItem alignItems="center">
-                                <FormControlLabel control={<Checkbox style={{
-                                    color: "#FFFFFF"
-                                }} />} label="Sponsor Events?" />
-                            </ListItem>
-
-                            <ListItem alignItems="center">
-                                <FormControlLabel control={<Checkbox style={{
-                                    color: "#FFFFFF"
-                                }} />} label="Need interns/IT support?" />
-                            </ListItem>
-
-                            <ListItem alignItems="center">
-                                <FormControlLabel control={<Checkbox style={{
-                                    color: "#FFFFFF"
-                                }} />} label="Need a project completed?" />
-                            </ListItem>
-
-                            <ListItem alignItems="center">
-                                <FormControlLabel control={<Checkbox style={{
-                                    color: "#FFFFFF"
-                                }} checked={checked} onChange={handleChange} />} label="" />
-                                <TextField
-                                    disabled={!checked}
-                                    label="Other: "
-                                    sx={{ input: { color: 'white' } }}
-                                    InputLabelProps={{
-                                        style: { color: '#fff' },
-                                    }}
-                                />
-                            </ListItem>
-                            </Col>
-                        </Row>
-</div>
+                    <ToggleButtonGroup
+  color="primary"
+  value={alignment}
+  exclusive
+  onChange={handleChange}
+  aria-label="Platform"
+>
+  <ToggleButton value="consulting">Consulting</ToggleButton>
+  <ToggleButton value="coding">Coding</ToggleButton>
+</ToggleButtonGroup>
+                    { alignment === "consulting" ? <ConsultingForm /> : null }
                    
+                  
                     <motion.div tabIndex={0} onClick={() => window.open("mailto:adam.lueken@d128.org")} className="click-to col-cc oxanium h6 bold w-100 text-centered" whileHover={{ boxShadow: "0 0 1rem white" }}>
                         Click to contact Adam Lueken (adam.lueken@d128.org) for more information.
                     </motion.div>
