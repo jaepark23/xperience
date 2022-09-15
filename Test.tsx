@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, lazy} from "react";
+import React, { useEffect, useRef, useState, lazy } from "react";
 import "../../scss/core.scss"
 import "../../scss/pages.scss"
 import { AnimatePresence, motion } from "framer-motion";
@@ -9,8 +9,18 @@ import { useNavigate } from "react-router-dom";
 
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import ToggleButton from "@mui/material/ToggleButton";
+import makeStyles from "@mui/material/styles/makeStyles";
 
 const ConsultingForm = lazy(() => import("../generic/ConsultingForm"))
+
+const styles = () => ({
+    container: {
+        height: '20rem',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+    },
+});
 
 function Test(props: {}) {
 
@@ -27,9 +37,9 @@ function Test(props: {}) {
     const handleChange = (
         event: React.MouseEvent<HTMLElement>,
         newAlignment: string,
-      ) => {
+    ) => {
         setAlignment(newAlignment);
-      };
+    };
 
     useEffect(() => {
         theme.setLoadState(-2)
@@ -57,18 +67,18 @@ function Test(props: {}) {
                         </motion.div>
                     </div>
                     <ToggleButtonGroup
-  color="primary"
-  value={alignment}
-  exclusive
-  onChange={handleChange}
-  aria-label="Platform"
->
-  <ToggleButton value="consulting">Consulting</ToggleButton>
-  <ToggleButton value="coding">Coding</ToggleButton>
-</ToggleButtonGroup>
-                    { alignment === "consulting" ? <ConsultingForm /> : null }
-                   
-                  
+                        color="primary"
+                        value={alignment}
+                        exclusive
+                        onChange={handleChange}
+                        aria-label="Platform"
+                    >
+                        <ToggleButton value="consulting">Consulting</ToggleButton>
+                        <ToggleButton value="coding">Coding</ToggleButton>
+                    </ToggleButtonGroup>
+                    {alignment === "consulting" ? <ConsultingForm /> : null}
+
+
                     <motion.div tabIndex={0} onClick={() => window.open("mailto:adam.lueken@d128.org")} className="click-to col-cc oxanium h6 bold w-100 text-centered" whileHover={{ boxShadow: "0 0 1rem white" }}>
                         Click to contact Adam Lueken (adam.lueken@d128.org) for more information.
                     </motion.div>
