@@ -25,63 +25,58 @@ function ConsultingForm() {
 
 
     return <div className="test">
-        <Grid container spacing={2}>
-            <Grid xs={6}
-                display="flex"
-                direction="column"
-                alignItems="center"
-                justifyContent="center">
-                <TextField
-                    required
-                    id="outlined-required"
-                    label="Name"
-                    defaultValue="Enter your name"
-                    margin="normal"
-                />
-                <TextField
-                    required
-                    label="Email"
-                    defaultValue="Enter your email"
-                    margin="normal"
-                />
-                <TextField
-                    required
-                    label="Company Name"
-                    defaultValue="Enter your company name"
-                />
+        <Grid container >
+           
+                <Grid xs={6}>
+                <Grid container justifyContent = "center">
+                    <TextField
+                        required
+                        label="Name"
+                        defaultValue="Enter your name"
+                        margin="normal"
+                    />
+                    <TextField
+                        required
+                        label="Email"
+                        defaultValue="Enter your email"
+                        margin="normal"
+                    />
+                    <TextField
+                        required
+                        label="Company Name"
+                        defaultValue="Enter your company name"
+                        margin="normal"
+                    />
+                </Grid>
             </Grid>
             <Grid xs={6}>
-                <ListItem alignItems="center">
-                    <FormControlLabel control={<Checkbox style={{
-                        color: "#FFFFFF"
-                    }} />} label="Sponsor Events?" />
-                </ListItem>
+                <Grid container display = "flex" direction = "column">
+                        
+                        <FormControlLabel control={<Checkbox style={{
+                            color: "#FFFFFF"
+                        }} />} label="Sponsor Events?" />
 
-                <ListItem alignItems="center">
-                    <FormControlLabel control={<Checkbox style={{
-                        color: "#FFFFFF"
-                    }} />} label="Need interns/IT support?" />
-                </ListItem>
+                        <FormControlLabel control={<Checkbox style={{
+                            color: "#FFFFFF"
+                        }} />} label="Need interns/IT support?" />
 
-                <ListItem alignItems="center">
-                    <FormControlLabel control={<Checkbox style={{
-                        color: "#FFFFFF"
-                    }} />} label="Need a project completed?" />
-                </ListItem>
 
-                <ListItem alignItems="center">
-                    <FormControlLabel control={<Checkbox style={{
-                        color: "#FFFFFF"
-                    }} checked={checked} onChange={handleChange} />} label="" />
-                    <TextField
-                        disabled={!checked}
-                        label="Other: "
-                        sx={{ input: { color: 'white' } }}
-                        InputLabelProps={{
-                            style: { color: '#fff' },
-                        }}
-                    />
-                </ListItem>
+                        <FormControlLabel control={<Checkbox style={{
+                            color: "#FFFFFF"
+                        }} />} label="Need a project completed?" />
+
+                        <FormControlLabel control={<Checkbox style={{
+                            color: "#FFFFFF"
+                        }} checked={checked} onChange={handleChange} />} label="" />
+                        <TextField
+                            disabled={!checked}
+                            label="Other: "
+                            sx={{ input: { color: 'white' } }}
+                            InputLabelProps={{
+                                style: { color: '#fff' },
+                            }}
+                        />
+                    </Grid>
             </Grid>
         </Grid>
         <Button variant="contained" size="medium">Medium</Button>
@@ -89,4 +84,3 @@ function ConsultingForm() {
 }
 
 export default ConsultingForm;
-
