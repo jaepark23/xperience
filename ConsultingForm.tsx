@@ -25,8 +25,7 @@ function ConsultingForm() {
 
 
     return <div className="test">
-        <Grid container >
-           
+        <Grid container>
                 <Grid xs={6}>
                 <Grid container justifyContent = "center">
                     <TextField
