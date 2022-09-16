@@ -14,6 +14,9 @@ import ListItem from "@mui/material/ListItem";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
 
 function ConsultingForm() {
 
@@ -25,45 +28,112 @@ function ConsultingForm() {
 
 
     return <div className="test">
-        <Grid container>
+        <Grid container spacing = {0}>
                 <Grid xs={6}>
                 <Grid container justifyContent = "center">
-                    <TextField
+                    <List>
+                    <ListItem>
+                        <TextField
                         required
                         label="Name"
                         defaultValue="Enter your name"
-                        margin="normal"
+
                     />
+                    </ListItem>
+                    <ListItem>
                     <TextField
                         required
                         label="Email"
                         defaultValue="Enter your email"
-                        margin="normal"
+
                     />
+                    </ListItem>
+                    <ListItem>
                     <TextField
                         required
                         label="Company Name"
                         defaultValue="Enter your company name"
-                        margin="normal"
+
                     />
+                    </ListItem>
+                    </List>
+
                 </Grid>
             </Grid>
+            
             <Grid xs={6}>
-                <Grid container display = "flex" direction = "column">
-                        
-                        <FormControlLabel control={<Checkbox style={{
+                <List disablePadding >
+                    <ListItem>    
+                        <ListItemButton role={undefined} dense>
+              <ListItemIcon>
+                <Checkbox
+                  edge="end"
+                  tabIndex={-1}
+                  disableRipple
+                />
+              </ListItemIcon>
+              <ListItemText primary={`Line item 8`} />
+            </ListItemButton>
+            </ListItem>
+            <ListItem>    
+                        <ListItemButton role={undefined} dense>
+              <ListItemIcon>
+                <Checkbox
+                  edge="end"
+                  tabIndex={-1}
+                  disableRipple
+                />
+              </ListItemIcon>
+              <ListItemText primary={`Line item 8`} />
+            </ListItemButton>
+            </ListItem>
+            
+            <ListItem>    
+                        <ListItemButton role={undefined} dense>
+              <ListItemIcon>
+                <Checkbox
+                  edge="end"
+                  tabIndex={-1}
+                  disableRipple
+                />
+              </ListItemIcon>
+              <ListItemText primary={`Line item 8`} />
+            </ListItemButton>
+            </ListItem>
+            
+            <ListItem>    
+                        <ListItemButton role={undefined} dense>
+              <ListItemIcon>
+                <Checkbox
+                  edge="end"
+                  tabIndex={-1}
+                  disableRipple
+                />
+              </ListItemIcon>
+              <ListItemText primary={`Line item 8`} />
+            </ListItemButton>
+            </ListItem>
+            
+            
+            
+                        {/* <FormControlLabel control={<Checkbox style={{
                             color: "#FFFFFF"
                         }} />} label="Sponsor Events?" />
+                        </ListItem> */}
 
+                    {/* <ListItem>
                         <FormControlLabel control={<Checkbox style={{
                             color: "#FFFFFF"
                         }} />} label="Need interns/IT support?" />
+                    </ListItem>
 
-
+                    <ListItem>
                         <FormControlLabel control={<Checkbox style={{
                             color: "#FFFFFF"
                         }} />} label="Need a project completed?" />
-
+                    </ListItem>
+                    
+                    <ListItem>
                         <FormControlLabel control={<Checkbox style={{
                             color: "#FFFFFF"
                         }} checked={checked} onChange={handleChange} />} label="" />
@@ -75,10 +145,15 @@ function ConsultingForm() {
                                 style: { color: '#fff' },
                             }}
                         />
-                    </Grid>
+                        </ListItem> */}
+                    </List>
+
+            </Grid>
+            <Grid xs = {12}>
+                <Button variant="contained" >Medium</Button>
             </Grid>
         </Grid>
-        <Button variant="contained" size="medium">Medium</Button>
+        
     </div >
 }
 
