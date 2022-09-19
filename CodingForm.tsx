@@ -77,7 +77,7 @@ function CodingForm() {
             <TextEntryField
                 style={{ width: "200px", margin: "5px" }}
                 type="text"
-                label="Company Name"
+                label="Grade Level"
                 variant="outlined"
                 InputLabelProps={{
                     style: { color: '#fff', borderColor: 'white' },
@@ -87,13 +87,13 @@ function CodingForm() {
         <div className="test2">
             <FormControlLabel control={<Checkbox style={{
                 color: "#FFFFFF"
-            }} />} label="Sponsor Events?" />
+            }} />} label="Intro to coding" />
             <FormControlLabel control={<Checkbox style={{
                 color: "#FFFFFF"
-            }} />} label="Need interns/IT support?" />
+            }} />} label="Robotics" />
             <FormControlLabel control={<Checkbox style={{
                 color: "#FFFFFF"
-            }} />} label="Need a project completed?" />
+            }} />} label="Web development" />
             <FormControlLabel control={<Checkbox style={{
                 color: "#FFFFFF"
             }} checked={checked} onChange={handleChange} />} label="" />
@@ -107,7 +107,11 @@ function CodingForm() {
                 }}
             />
         </div>
-
+        <Box textAlign='center'>
+            <Button variant='contained'>
+                Submit
+            </Button>
+        </Box>
     </div >
 }
 
