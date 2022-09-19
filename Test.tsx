@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, lazy} from "react";
+import React, { useEffect, useRef, useState, lazy, Suspense } from "react";
 import "../../scss/core.scss"
 import "../../scss/pages.scss"
 import { AnimatePresence, motion } from "framer-motion";
@@ -6,11 +6,24 @@ import { Anim } from "../../Animation";
 import { useTheme } from "../generic/ThemeContext";
 import { useNavigate } from "react-router-dom";
 
+import Background from "../../img/form.jpeg"
 
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import ToggleButton from "@mui/material/ToggleButton";
+import makeStyles from "@mui/material/styles/makeStyles";
 
-const ConsultingForm = lazy(() => import("../generic/ConsultingForm"))
+import CodingForm from "../generic/CodingForm"
+
+import ConsultingForm from "../generic/ConsultingForm"
+
+const styles = () => ({
+    container: {
+        height: '20rem',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+    },
+});
 
 function Test(props: {}) {
 
@@ -27,9 +40,10 @@ function Test(props: {}) {
     const handleChange = (
         event: React.MouseEvent<HTMLElement>,
         newAlignment: string,
-      ) => {
-        setAlignment(newAlignment);
-      };
+    ) => {
+        setAlignment(newAlignment)
+        console.log(newAlignment)
+    };
 
     useEffect(() => {
         theme.setLoadState(-2)
@@ -42,7 +56,7 @@ function Test(props: {}) {
                     initial="inactive" animate="active" exit="inactive"
                 >
                     <div className="h0 oxanium bold col-cc" style={{
-                        backgroundImage: "url(\"https://campussuite-storage.s3.amazonaws.com/prod/1059662/301794b6-30da-11e7-9e05-124f7febbf4a/1811609/d77e7936-9ff2-11e8-8fd6-120544974b42/optimizations/1\")",
+                        backgroundImage: `url(${Background})`,
                         backgroundSize: "100% auto",
                         backgroundPosition: "50% 50%",
                     }}>
@@ -57,18 +71,18 @@ function Test(props: {}) {
                         </motion.div>
                     </div>
                     <ToggleButtonGroup
-  color="primary"
-  value={alignment}
-  exclusive
-  onChange={handleChange}
-  aria-label="Platform"
->
-  <ToggleButton value="consulting">Consulting</ToggleButton>
-  <ToggleButton value="coding">Coding</ToggleButton>
-</ToggleButtonGroup>
-                    { alignment === "consulting" ? <ConsultingForm /> : null }
-                   
-                  
+                        color="primary"
+                        value={alignment}
+                        exclusive
+                        onChange={handleChange}
+                        aria-label="Platform"
+                    >
+                        <ToggleButton value="consulting">Consulting</ToggleButton>
+                        <ToggleButton value="coding">Coding</ToggleButton>
+                    </ToggleButtonGroup>
+                    {alignment === "consulting" ? <ConsultingForm /> : <CodingForm />}
+
+
                     <motion.div tabIndex={0} onClick={() => window.open("mailto:adam.lueken@d128.org")} className="click-to col-cc oxanium h6 bold w-100 text-centered" whileHover={{ boxShadow: "0 0 1rem white" }}>
                         Click to contact Adam Lueken (adam.lueken@d128.org) for more information.
                     </motion.div>
