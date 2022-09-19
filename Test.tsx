@@ -41,8 +41,10 @@ function Test(props: {}) {
         event: React.MouseEvent<HTMLElement>,
         newAlignment: string,
     ) => {
-        setAlignment(newAlignment)
-        console.log(newAlignment)
+        if (newAlignment != null) {
+            setAlignment(newAlignment)
+        }
+
     };
 
     useEffect(() => {
@@ -81,7 +83,6 @@ function Test(props: {}) {
                         <ToggleButton value="coding">Coding</ToggleButton>
                     </ToggleButtonGroup>
                     {alignment === "consulting" ? <ConsultingForm /> : <CodingForm />}
-
 
                     <motion.div tabIndex={0} onClick={() => window.open("mailto:adam.lueken@d128.org")} className="click-to col-cc oxanium h6 bold w-100 text-centered" whileHover={{ boxShadow: "0 0 1rem white" }}>
                         Click to contact Adam Lueken (adam.lueken@d128.org) for more information.
