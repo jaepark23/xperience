@@ -17,6 +17,31 @@ import Grid from "@mui/material/Grid";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import { styled } from "@mui/material/styles";
+
+const TextEntryField = styled(TextField)({
+  '& label.Mui-focused': {
+    color: 'white',
+  },
+  '& .MuiInputBase-input': {
+    color: 'white',
+  },
+  '& .MuiInput-underline:after': {
+    borderBottomColor: 'white',
+  },
+  '& .MuiOutlinedInput-root': {
+    '& fieldset': {
+      borderColor: 'white',
+    },
+    '&:hover fieldset': {
+      borderColor: 'white',
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: 'white',
+    },
+  },
+});
+
 
 function ConsultingForm() {
 
@@ -27,133 +52,66 @@ function ConsultingForm() {
     const [checked, setChecked] = useState(false)
 
 
-    return <div className="test">
-        <Grid container spacing = {0}>
-                <Grid xs={6}>
-                <Grid container justifyContent = "center">
-                    <List>
-                    <ListItem>
-                        <TextField
-                        required
-                        label="Name"
-                        defaultValue="Enter your name"
-
-                    />
-                    </ListItem>
-                    <ListItem>
-                    <TextField
-                        required
-                        label="Email"
-                        defaultValue="Enter your email"
-
-                    />
-                    </ListItem>
-                    <ListItem>
-                    <TextField
-                        required
-                        label="Company Name"
-                        defaultValue="Enter your company name"
-
-                    />
-                    </ListItem>
-                    </List>
-
-                </Grid>
-            </Grid>
-            
-            <Grid xs={6}>
-                <List disablePadding >
-                    <ListItem>    
-                        <ListItemButton role={undefined} dense>
-              <ListItemIcon>
-                <Checkbox
-                  edge="end"
-                  tabIndex={-1}
-                  disableRipple
-                />
-              </ListItemIcon>
-              <ListItemText primary={`Line item 8`} />
-            </ListItemButton>
-            </ListItem>
-            <ListItem>    
-                        <ListItemButton role={undefined} dense>
-              <ListItemIcon>
-                <Checkbox
-                  edge="end"
-                  tabIndex={-1}
-                  disableRipple
-                />
-              </ListItemIcon>
-              <ListItemText primary={`Line item 8`} />
-            </ListItemButton>
-            </ListItem>
-            
-            <ListItem>    
-                        <ListItemButton role={undefined} dense>
-              <ListItemIcon>
-                <Checkbox
-                  edge="end"
-                  tabIndex={-1}
-                  disableRipple
-                />
-              </ListItemIcon>
-              <ListItemText primary={`Line item 8`} />
-            </ListItemButton>
-            </ListItem>
-            
-            <ListItem>    
-                        <ListItemButton role={undefined} dense>
-              <ListItemIcon>
-                <Checkbox
-                  edge="end"
-                  tabIndex={-1}
-                  disableRipple
-                />
-              </ListItemIcon>
-              <ListItemText primary={`Line item 8`} />
-            </ListItemButton>
-            </ListItem>
-            
-            
-            
-                        {/* <FormControlLabel control={<Checkbox style={{
+    return <div className="l">
+        <div className="test">
+            <TextEntryField
+                style={{ width: "200px", margin: "5px" }}
+                type="text"
+                label="Name"
+                variant="outlined"
+                InputLabelProps={{
+                  style: { color: '#fff', borderColor: 'white' },
+              }}
+            />
+            <br />
+            <TextEntryField
+                style={{ width: "200px", margin: "5px" }}
+                type="text"
+                label="Email"
+                variant="outlined"
+                InputLabelProps={{
+                  style: { color: '#fff', borderColor: 'white' },
+              }}
+            />
+            <br />
+            <TextEntryField
+                style={{ width: "200px", margin: "5px" }}
+                type="text"
+                label="Company Name"
+                variant="outlined"
+                InputLabelProps={{
+                  style: { color: '#fff', borderColor: 'white' },
+              }}
+            />
+        </div>
+        <div className = "test2">
+          <FormControlLabel control={<Checkbox style={{
                             color: "#FFFFFF"
                         }} />} label="Sponsor Events?" />
-                        </ListItem> */}
-
-                    {/* <ListItem>
                         <FormControlLabel control={<Checkbox style={{
                             color: "#FFFFFF"
                         }} />} label="Need interns/IT support?" />
-                    </ListItem>
-
-                    <ListItem>
                         <FormControlLabel control={<Checkbox style={{
                             color: "#FFFFFF"
                         }} />} label="Need a project completed?" />
-                    </ListItem>
-                    
-                    <ListItem>
-                        <FormControlLabel control={<Checkbox style={{
+                      <FormControlLabel control={<Checkbox style={{
                             color: "#FFFFFF"
                         }} checked={checked} onChange={handleChange} />} label="" />
-                        <TextField
-                            disabled={!checked}
+                        <TextEntryField
+                        type = "text"
+                          variant="outlined"
+                            // disabled={!checked}
                             label="Other: "
-                            sx={{ input: { color: 'white' } }}
                             InputLabelProps={{
-                                style: { color: '#fff' },
+                                style: { color: '#fff', borderColor: 'white' },
                             }}
                         />
-                        </ListItem> */}
-                    </List>
-
-            </Grid>
-            <Grid xs = {12}>
-                <Button variant="contained" >Medium</Button>
-            </Grid>
-        </Grid>
-        
+        </div>
+        <Box textAlign='center'>
+  <Button variant='contained'>
+    Submit
+  </Button>
+</Box>
     </div >
 }
 
