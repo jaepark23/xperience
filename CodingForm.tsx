@@ -52,7 +52,11 @@ function CodingForm() {
     const [checked, setChecked] = useState(false)
 
 
-    return <div className="l">
+    return <motion.div className="l"
+        initial={{ y: 10, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: -10, opacity: 0 }}
+        transition={{ duration: .5 }}>
         <div className="test">
             <TextEntryField
                 style={{ width: "200px", margin: "5px" }}
@@ -104,15 +108,14 @@ function CodingForm() {
                 label="Other: "
                 InputLabelProps={{
                     style: { color: '#fff', borderColor: 'white' },
-                }}
-            />
+                }} />
         </div>
         <Box textAlign='center'>
             <Button variant='contained'>
                 Submit
             </Button>
         </Box>
-    </div >
+    </motion.div >
 }
 
 export default CodingForm;
