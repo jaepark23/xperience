@@ -51,12 +51,18 @@ function ConsultingForm() {
 
     const [checked, setChecked] = useState(false)
 
+    const spring = {
+        type: "spring",
+        stiffness: 700,
+        damping: 30
+    };
 
     return <motion.div className="l"
-    variants={Anim.bounceX(-1200).spring(240, 0, 30).build()}
-    initial = {false}
-    animate = "active"
-    exit = "inactive">
+        initial={{ y: 10, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: -10, opacity: 0 }}
+        transition={{ duration: .8 }}
+    >
         <div className="test">
             <TextEntryField
                 style={{ width: "200px", margin: "5px" }}
