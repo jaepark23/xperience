@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../../scss/core.scss"
 import "../../scss/generic.scss"
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Anim } from "../../Animation";
 
 import FormGroup from '@mui/material/FormGroup';
@@ -17,6 +17,32 @@ import Grid from "@mui/material/Grid";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import { styled } from "@mui/material/styles";
+import { Stack } from "@mui/material";
+
+const TextEntryField = styled(TextField)({
+    '& label.Mui-focused': {
+        color: 'white',
+    },
+    '& .MuiInputBase-input': {
+        color: 'white',
+    },
+    '& .MuiInput-underline:after': {
+        borderBottomColor: 'white',
+    },
+    '& .MuiOutlinedInput-root': {
+        '& fieldset': {
+            borderColor: 'white',
+        },
+        '&:hover fieldset': {
+            borderColor: 'white',
+        },
+        '&.Mui-focused fieldset': {
+            borderColor: 'white',
+        },
+    },
+});
+
 
 function ConsultingForm() {
 
@@ -26,34 +52,104 @@ function ConsultingForm() {
 
     const [checked, setChecked] = useState(false)
 
+    const spring = {
+        type: "spring",
+        stiffness: 700,
+        damping: 30
+    };
 
-    return <div className="l">
-        <div className="test">
-            <TextField
+    return <motion.div className="l"
+        initial={{ y: 10, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: -10, opacity: 0 }}
+        transition={{ duration: .8 }}
+    >
+
+        <Stack
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+            spacing={1}
+        >
+
+            <TextEntryField
                 style={{ width: "200px", margin: "5px" }}
                 type="text"
-                label="setgoal"
+                label="Name"
                 variant="outlined"
+                InputLabelProps={{
+                    style: { color: '#fff', borderColor: 'white' },
+                }}
             />
             <br />
-            <TextField
+            <TextEntryField
                 style={{ width: "200px", margin: "5px" }}
                 type="text"
-                label="goal description"
+                label="Email"
                 variant="outlined"
+                InputLabelProps={{
+                    style: { color: '#fff', borderColor: 'white' },
+                }}
             />
             <br />
-            <TextField
+            <TextEntryField
                 style={{ width: "200px", margin: "5px" }}
                 type="text"
-                label="Diversity catagory"
+                label="Company Name"
                 variant="outlined"
+                InputLabelProps={{
+                    style: { color: '#fff', borderColor: 'white' },
+                }}
             />
-        </div>
-        <Button variant="contained" color="primary">
-            save
-        </Button>
-    </div >
+        </Stack>
+        <Stack
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+            spacing={1}
+        >
+
+            {/* <div className="test2"> */}
+            <FormControlLabel control={<Checkbox style={{
+                color: "#FFFFFF",
+            }} />} label="Sponsor Events?" />
+            <FormControlLabel control={<Checkbox style={{
+                color: "#FFFFFF",
+            }} />} label="Need interns/IT support?" />
+            <FormControlLabel control={<Checkbox style={{
+                color: "#FFFFFF",
+            }} />} label="Need a project completed?" />
+            {/* </div> */}
+        </Stack>
+        {/* <div className="test2">
+            <FormControlLabel control={<Checkbox style={{
+                color: "#FFFFFF"
+            }} />} label="Sponsor Events?" />
+            <FormControlLabel control={<Checkbox style={{
+                color: "#FFFFFF"
+            }} />} label="Need a project completed?" />
+            <FormControlLabel control={<Checkbox style={{
+                color: "#FFFFFF"
+            }} checked={checked} onChange={handleChange} />} label="" />
+            <TextEntryField
+                style={{ width: "200px", margin: "5px" }}
+                type="text"
+                variant="outlined"
+                // disabled={!checked}
+                label="Other: "
+                InputLabelProps={{
+                    style: { color: '#fff', borderColor: 'white' },
+                }}
+            />
+        </div> */}
+        <Box textAlign='center'>
+            <Button variant='contained'>
+                Submit
+            </Button>
+        </Box>
+    </motion.div >
+
+
 }
 
 export default ConsultingForm;
