@@ -27,11 +27,11 @@ function Team(props: {}) {
 
     const layout = [
         { i: "a", x: 0, y: 0, w: 1, h: 1, static: true },
-        { i: "b", x: 1, y: 0, w: 1, h: 1 },
-        { i: "c", x: 2, y: 0, w: 1, h: 1 },
-        { i: "d", x: 0, y: 1, w: 1, h: 1 },
-        { i: "e", x: 1, y: 1, w: 1, h: 1 },
-        { i: "f", x: 2, y: 1, w: 1, h: 1 },
+        { i: "b", x: 1, y: 0, w: 1, h: 1, static: true },
+        { i: "c", x: 2, y: 0, w: 1, h: 1, static: true },
+        { i: "d", x: 0, y: 1, w: 1, h: 1, static: true },
+        { i: "e", x: 1, y: 1, w: 1, h: 1, static: true },
+        { i: "f", x: 2, y: 1, w: 1, h: 1, static: true },
     ];
     useEffect(() => {
         theme.setLoadState(-2)
