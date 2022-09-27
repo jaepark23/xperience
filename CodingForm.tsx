@@ -17,7 +17,10 @@ import Grid from "@mui/material/Grid";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import { styled } from "@mui/material/styles";
+import { makeStyles, styled } from "@mui/material/styles";
+import { Divider, Stack } from "@mui/material";
+
+
 
 const TextEntryField = styled(TextField)({
     '& label.Mui-focused': {
@@ -56,10 +59,21 @@ function CodingForm() {
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: -10, opacity: 0 }}
-        transition={{ duration: .5 }}>
-        <div className="test">
+        transition={{ duration: .8 }}
+    >
+
+        <Stack
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+            spacing={2}
+            divider={<Divider orientation="vertical" flexItem />}
+        >
+
             <TextEntryField
-                style={{ width: "200px", margin: "5px" }}
+                id = "name"
+                style={{ width: "200px" }}
+                size="small"
                 type="text"
                 label="Name"
                 variant="outlined"
@@ -67,9 +81,11 @@ function CodingForm() {
                     style: { color: '#fff', borderColor: 'white' },
                 }}
             />
-            <br />
+
             <TextEntryField
-                style={{ width: "200px", margin: "5px" }}
+                id = "email"
+                style={{ width: "200px" }}
+                size="small"
                 type="text"
                 label="Email"
                 variant="outlined"
@@ -77,9 +93,11 @@ function CodingForm() {
                     style: { color: '#fff', borderColor: 'white' },
                 }}
             />
-            <br />
+
             <TextEntryField
-                style={{ width: "200px", margin: "5px" }}
+                id = "grade"
+                style={{ width: "200px" }}
+                size="small"
                 type="text"
                 label="Grade Level"
                 variant="outlined"
@@ -87,35 +105,63 @@ function CodingForm() {
                     style: { color: '#fff', borderColor: 'white' },
                 }}
             />
-        </div>
-        <div className="test2">
+        </Stack>
+        <br />
+        <Divider variant="middle" style={{ background: 'white', borderBottomWidth: 2, marginLeft: '4%', marginRight: '4%' }} />
+
+        <Stack
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+            spacing={1}
+            divider={<Divider orientation="vertical" flexItem />}
+        >
             <FormControlLabel control={<Checkbox style={{
-                color: "#FFFFFF"
-            }} />} label="Intro to coding" />
+                color: "#FFFFFF",
+            }} />} label="Beginner coding?" />
             <FormControlLabel control={<Checkbox style={{
-                color: "#FFFFFF"
-            }} />} label="Robotics" />
+                color: "#FFFFFF",
+            }} />} label="Robotics?" />
             <FormControlLabel control={<Checkbox style={{
-                color: "#FFFFFF"
-            }} />} label="Web development" />
+                color: "#FFFFFF",
+            }} />} label="Web development?" />
+        </Stack>
+
+        <Stack
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+            spacing={0}
+            divider={<Divider orientation="vertical" flexItem />}
+        >
+            <FormControlLabel control={<Checkbox style={{
+                color: "#FFFFFF",
+            }} />} label="Intermediate coding?" />
             <FormControlLabel control={<Checkbox style={{
                 color: "#FFFFFF"
             }} checked={checked} onChange={handleChange} />} label="" />
+
             <TextEntryField
+                style={{ width: "200px", }}
                 type="text"
+                size="small"
                 variant="outlined"
                 // disabled={!checked}
                 label="Other: "
                 InputLabelProps={{
                     style: { color: '#fff', borderColor: 'white' },
-                }} />
-        </div>
+                }}
+            />
+        </Stack>
+        <br />
         <Box textAlign='center'>
-            <Button variant='contained'>
+            <Button variant='contained' type = "button">
                 Submit
             </Button>
         </Box>
+
     </motion.div >
+
 }
 
 export default CodingForm;
