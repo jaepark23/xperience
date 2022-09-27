@@ -6,24 +6,19 @@ import { Anim } from "../../Animation";
 import { useTheme } from "../generic/ThemeContext";
 import { useNavigate } from "react-router-dom";
 
-import Background from "../../img/form.jpeg"
+import Background from "../../img/form.jpg"
 
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import ToggleButton from "@mui/material/ToggleButton";
-import makeStyles from "@mui/material/styles/makeStyles";
 
 import CodingForm from "../generic/CodingForm"
 
 import ConsultingForm from "../generic/ConsultingForm"
+import { createTheme, ThemeProvider } from "@mui/material";
+import { purple } from "@mui/material/colors";
 
-const styles = () => ({
-    container: {
-        height: '20rem',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-    },
-});
+
+
 
 function Test(props: {}) {
 
@@ -31,6 +26,19 @@ function Test(props: {}) {
     const navigate = useNavigate()
 
     const [alignment, setAlignment] = useState('consulting')
+
+    const muiTheme = createTheme({
+        palette: {
+          primary: {
+            // Purple and green play nicely together.
+            main: "#FFFFFF",
+          },
+          secondary: {
+            // This is green.A700 as hex.
+            main: '#11cb5f',
+          },
+        },
+      });
 
     const layout = [
         { i: "a", x: 0, y: 0, w: 1, h: 1, static: true },
@@ -72,6 +80,7 @@ function Test(props: {}) {
                             {"<"}
                         </motion.div>
                     </div>
+                    <ThemeProvider theme = {muiTheme}>
                     <ToggleButtonGroup
                         color="primary"
                         value={alignment}
@@ -82,6 +91,7 @@ function Test(props: {}) {
                         <ToggleButton value="consulting">Consulting</ToggleButton>
                         <ToggleButton value="coding">Coding</ToggleButton>
                     </ToggleButtonGroup>
+                    </ThemeProvider>
                     {alignment === "consulting" ? <ConsultingForm /> : <CodingForm />}
 
                     <motion.div tabIndex={0} onClick={() => window.open("mailto:adam.lueken@d128.org")} className="click-to col-cc oxanium h6 bold w-100 text-centered" whileHover={{ boxShadow: "0 0 1rem white" }}>
