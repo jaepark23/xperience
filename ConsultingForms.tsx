@@ -1,114 +1,171 @@
-import React, { useEffect, useRef, useState, lazy, Suspense } from "react";
+import React, { useEffect, useState } from "react";
 import "../../scss/core.scss"
-import "../../scss/pages.scss"
+import "../../scss/generic.scss"
 import { AnimatePresence, motion } from "framer-motion";
 import { Anim } from "../../Animation";
-import { useTheme } from "../generic/ThemeContext";
-import { useNavigate } from "react-router-dom";
 
-import Background from "../../img/form.jpeg"
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import List from "@mui/material/List";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
+import ListItem from "@mui/material/ListItem";
+import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import { styled } from "@mui/material/styles";
+import { Divider, Stack } from "@mui/material";
 
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import ToggleButton from "@mui/material/ToggleButton";
-
-import CodingForm from "../generic/CodingForm"
-
-import ConsultingForm from "../generic/ConsultingForm"
-import { createTheme, ThemeProvider } from "@mui/material";
-import { purple } from "@mui/material/colors";
-
-
-
-
-function Test(props: {}) {
-
-    const theme = useTheme()
-    const navigate = useNavigate()
-
-    const [alignment, setAlignment] = useState('consulting')
-
-    const muiTheme = createTheme({
-        palette: {
-          primary: {
-            // Purple and green play nicely together.
-            main: "#FFFFFF",
-          },
-          secondary: {
-            // This is green.A700 as hex.
-            main: '#11cb5f',
-          },
-          background: {
-            // Purple and green play nicely together.
-            paper: "#FFFFFF",
-          },
-          text: {
-            primary: "#FFFFFF",
-          }
+const TextEntryField = styled(TextField)({
+    '& label.Mui-focused': {
+        color: 'white',
+    },
+    '& .MuiInputBase-input': {
+        color: 'white',
+    },
+    '& .MuiInput-underline:after': {
+        borderBottomColor: 'white',
+    },
+    '& .MuiOutlinedInput-root': {
+        '& fieldset': {
+            borderColor: 'white',
         },
-      });
+        '&:hover fieldset': {
+            borderColor: 'white',
+        },
+        '&.Mui-focused fieldset': {
+            borderColor: 'white',
+        },
+    },
+});
 
-    const layout = [
-        { i: "a", x: 0, y: 0, w: 1, h: 1, static: true },
-        { i: "b", x: 1, y: 0, w: 1, h: 1, static: true },
-    ];
 
-    const handleChange = (
-        event: React.MouseEvent<HTMLElement>,
-        newAlignment: string,
-    ) => {
-        if (newAlignment != null) {
-            setAlignment(newAlignment)
-        }
+function ConsultingForm() {
 
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setChecked(event.target.checked);
     };
 
-    
-    useEffect(() => {
-        theme.setLoadState(-2)
-    }, [])
+    const [checked, setChecked] = useState(false)
 
-    return <div className="apex-test w-100 h-100 col-cc">
-        <AnimatePresence>
-            {theme.loadState === -2 &&
-                <motion.div className="document col-st" variants={Anim.bounceY(1200).spring(240, 0, 30).build()}
-                    initial="inactive" animate="active" exit="inactive"
-                >
-                    <div className="h0 oxanium bold col-cc" style={{
-                        backgroundImage: `url(${Background})`,
-                        backgroundSize: "100% auto",
-                        backgroundPosition: "50% 50%",
-                    }}>
-                        Form
-                        <motion.div className="back" tabIndex={0} onClick={() => {
-                            theme.setLoadState(-1);
-                            setTimeout(() => {
-                                navigate("/");
-                            }, 500)
-                        }} whileHover={{ boxShadow: "0 0 1rem white" }}>
-                            {"<"}
-                        </motion.div>
-                    </div>
-                    <ThemeProvider theme = {muiTheme}>
-                    <ToggleButtonGroup
+    const spring = {
+        type: "spring",
+        stiffness: 700,
+        damping: 30
+    };
 
-                        value={alignment}
-                        exclusive
-                        onChange={handleChange}
-                        aria-label="Platform"
-                    >
-                        <ToggleButton value="consulting">Consulting</ToggleButton>
-                        <ToggleButton value="coding">Coding</ToggleButton>
-                    </ToggleButtonGroup>
-                    </ThemeProvider>
-                    {alignment === "consulting" ? <ConsultingForm /> : <CodingForm />}
+    return <motion.div className="l"
+        initial={{ y: 10, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: -10, opacity: 0 }}
+        transition={{ duration: .5 }}
+    >
 
-                    <motion.div tabIndex={0} onClick={() => window.open("mailto:adam.lueken@d128.org")} className="click-to col-cc oxanium h6 bold w-100 text-centered" whileHover={{ boxShadow: "0 0 1rem white" }}>
-                        Click to contact Adam Lueken (adam.lueken@d128.org) for more information.
-                    </motion.div>
-                </motion.div>
-            }
-        </AnimatePresence>
-    </div>
+        <Stack
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+            spacing={2}
+            divider={<Divider orientation="vertical" flexItem />}
+        >
+
+            <TextEntryField
+                style={{ width: "200px"}}
+                size = "small"
+                type="text"
+                label="Name"
+                variant="outlined"
+                InputLabelProps={{
+                    style: { color: '#fff', borderColor: 'white' },
+                }}
+            />
+
+            <TextEntryField
+                style={{ width: "200px"}}
+                size = "small"
+                type="text"
+                label="Email"
+                variant="outlined"
+                InputLabelProps={{
+                    style: { color: '#fff', borderColor: 'white' },
+                }}
+            />
+
+            <TextEntryField
+                style={{ width: "200px" }}
+                size = "small"
+                type="text"
+                label="Company Name"
+                variant="outlined"
+                InputLabelProps={{
+                    style: { color: '#fff', borderColor: 'white' },
+                }}
+            />
+        </Stack>
+        
+        <br />
+        <Divider variant="middle" style={{ background: 'white', borderBottomWidth: 1, marginLeft: '4%', marginRight: '4%' }} />
+
+
+        <Stack
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+            spacing={1}
+
+        >
+            <FormControlLabel control={<Checkbox style={{
+                color: "#FFFFFF",
+            }} />} label="Sponsor Events?" />
+            <FormControlLabel control={<Checkbox style={{
+                color: "#FFFFFF",
+            }} />} label="Need interns/IT support?" />
+            <FormControlLabel control={<Checkbox style={{
+                color: "#FFFFFF",
+            }} />} label="Need a project completed?" />
+        </Stack>
+
+        <Stack
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+            spacing={0}
+
+        >
+                        <FormControlLabel control={<Checkbox style={{
+                color: "#FFFFFF",
+            }} />} label="Need interns/IT support?" />
+            <FormControlLabel control={<Checkbox style={{
+                color: "#FFFFFF",
+            }} />} label="Need a project completed?" />
+            <FormControlLabel control={<Checkbox style={{
+                color: "#FFFFFF"
+            }} checked={checked} onChange={handleChange} />} label="" />
+            <TextEntryField
+                style={{ width: "200px", }}
+                size = "small"
+                type="text"
+                variant="outlined"
+                // disabled={!checked}
+                label="Other: "
+                InputLabelProps={{
+                    style: { color: '#fff', borderColor: 'white' },
+                }}
+            />
+        </Stack>
+        <br />
+        <Box textAlign='center'>
+            <Button variant='contained'>
+                Submit
+            </Button>
+        </Box>
+    </motion.div >
+
+
 }
 
-export default Test;
+export default ConsultingForm;
