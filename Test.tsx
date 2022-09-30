@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Anim } from "../../Animation";
 import { useTheme } from "../generic/ThemeContext";
 import { useNavigate } from "react-router-dom";
+import { styled } from '@mui/system';
 
 import Background from "../../img/form.jpeg"
 
@@ -17,9 +18,6 @@ import ConsultingForm from "../generic/ConsultingForm"
 import { createTheme, ThemeProvider } from "@mui/material";
 import { purple } from "@mui/material/colors";
 
-
-
-
 function Test(props: {}) {
 
     const theme = useTheme()
@@ -29,23 +27,21 @@ function Test(props: {}) {
 
     const muiTheme = createTheme({
         palette: {
-          primary: {
-            // Purple and green play nicely together.
-            main: "#FFFFFF",
-          },
-          secondary: {
-            // This is green.A700 as hex.
-            main: '#11cb5f',
-          },
-          background: {
-            // Purple and green play nicely together.
-            paper: "#FFFFFF",
-          },
-          text: {
-            primary: "#FFFFFF",
-          }
+            primary: {
+                // Purple and green play nicely together.
+                main: "#FFFFFF",
+            },
+            secondary: {
+                // This is green.A700 as hex.
+                main: '#11cb5f',
+            },
+
+            text: {
+                primary: "#FFFFFF",
+            },
+
         },
-      });
+    });
 
     const layout = [
         { i: "a", x: 0, y: 0, w: 1, h: 1, static: true },
@@ -62,7 +58,10 @@ function Test(props: {}) {
 
     };
 
-    
+    const CustomToggle = styled(ToggleButton)({
+        color: "#FFFFFF"
+    })
+
     useEffect(() => {
         theme.setLoadState(-2)
     }, [])
@@ -88,17 +87,19 @@ function Test(props: {}) {
                             {"<"}
                         </motion.div>
                     </div>
-                    <ThemeProvider theme = {muiTheme}>
-                    <ToggleButtonGroup
-
-                        value={alignment}
-                        exclusive
-                        onChange={handleChange}
-                        aria-label="Platform"
-                    >
-                        <ToggleButton value="consulting">Consulting</ToggleButton>
-                        <ToggleButton value="coding">Coding</ToggleButton>
-                    </ToggleButtonGroup>
+                    <ThemeProvider theme={muiTheme}>
+                        <div>
+                            <ToggleButtonGroup
+                                value={alignment}
+                                exclusive
+                                onChange={handleChange}
+                                color="standard"
+                                sx={{ outlineColor: 'white', outlineWidth: '1px', outlineStyle: 'solid', margin: '2px' }}
+                            >
+                                <CustomToggle value="consulting">Consulting</CustomToggle>
+                                <CustomToggle value="coding">Coding</CustomToggle>
+                            </ToggleButtonGroup>
+                        </div>
                     </ThemeProvider>
                     {alignment === "consulting" ? <ConsultingForm /> : <CodingForm />}
 
@@ -108,7 +109,7 @@ function Test(props: {}) {
                 </motion.div>
             }
         </AnimatePresence>
-    </div>
+    </div >
 }
 
 export default Test;
