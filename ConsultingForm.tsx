@@ -18,6 +18,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { styled } from "@mui/material/styles";
+import { Divider, Stack } from "@mui/material";
 
 const TextEntryField = styled(TextField)({
     '& label.Mui-focused': {
@@ -61,11 +62,20 @@ function ConsultingForm() {
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: -10, opacity: 0 }}
-        transition={{ duration: .8 }}
+        transition={{ duration: .5 }}
     >
-        <div className="test">
+
+        <Stack
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+            spacing={2}
+            divider={<Divider orientation="vertical" flexItem />}
+        >
+
             <TextEntryField
-                style={{ width: "200px", margin: "5px" }}
+                style={{ width: "200px" }}
+                size="small"
                 type="text"
                 label="Name"
                 variant="outlined"
@@ -73,9 +83,10 @@ function ConsultingForm() {
                     style: { color: '#fff', borderColor: 'white' },
                 }}
             />
-            <br />
+
             <TextEntryField
-                style={{ width: "200px", margin: "5px" }}
+                style={{ width: "200px" }}
+                size="small"
                 type="text"
                 label="Email"
                 variant="outlined"
@@ -83,9 +94,10 @@ function ConsultingForm() {
                     style: { color: '#fff', borderColor: 'white' },
                 }}
             />
-            <br />
+
             <TextEntryField
-                style={{ width: "200px", margin: "5px" }}
+                style={{ width: "200px" }}
+                size="small"
                 type="text"
                 label="Company Name"
                 variant="outlined"
@@ -93,21 +105,46 @@ function ConsultingForm() {
                     style: { color: '#fff', borderColor: 'white' },
                 }}
             />
-        </div>
-        <div className="test2">
+        </Stack>
+
+        <br />
+        <Divider variant="middle" style={{ background: 'white', borderBottomWidth: 1, marginLeft: '4%', marginRight: '4%' }} />
+
+
+        <Stack
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+            spacing={1}
+
+        >
             <FormControlLabel control={<Checkbox style={{
-                color: "#FFFFFF"
+                color: "#FFFFFF",
             }} />} label="Sponsor Events?" />
             <FormControlLabel control={<Checkbox style={{
-                color: "#FFFFFF"
-            }} />} label="Need interns/IT support?" />
+                color: "#FFFFFF",
+            }} />} label="Need interns?" />
             <FormControlLabel control={<Checkbox style={{
-                color: "#FFFFFF"
+                color: "#FFFFFF",
             }} />} label="Need a project completed?" />
+        </Stack>
+
+        <Stack
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+            spacing={0}
+
+        >
+            <FormControlLabel control={<Checkbox style={{
+                color: "#FFFFFF",
+            }} />} label="Need IT support?" />
             <FormControlLabel control={<Checkbox style={{
                 color: "#FFFFFF"
             }} checked={checked} onChange={handleChange} />} label="" />
             <TextEntryField
+                style={{ width: "200px", }}
+                size="small"
                 type="text"
                 variant="outlined"
                 // disabled={!checked}
@@ -116,7 +153,8 @@ function ConsultingForm() {
                     style: { color: '#fff', borderColor: 'white' },
                 }}
             />
-        </div>
+        </Stack>
+        <br />
         <Box textAlign='center'>
             <Button variant='contained'>
                 Submit
