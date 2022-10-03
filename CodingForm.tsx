@@ -71,7 +71,7 @@ function CodingForm() {
         >
 
             <TextEntryField
-                id = "name"
+                id="name"
                 style={{ width: "200px" }}
                 size="small"
                 type="text"
@@ -83,7 +83,7 @@ function CodingForm() {
             />
 
             <TextEntryField
-                id = "email"
+                id="email"
                 style={{ width: "200px" }}
                 size="small"
                 type="text"
@@ -95,7 +95,7 @@ function CodingForm() {
             />
 
             <TextEntryField
-                id = "grade"
+                id="grade"
                 style={{ width: "200px" }}
                 size="small"
                 type="text"
@@ -107,13 +107,13 @@ function CodingForm() {
             />
         </Stack>
         <br />
-        <Divider variant="middle" style={{ background: 'white', borderBottomWidth: 2, marginLeft: '4%', marginRight: '4%' }} />
+        <Divider variant="middle" style={{ background: 'white', borderBottomWidth: 1, marginLeft: '4%', marginRight: '4%' }} />
 
         <Stack
             direction="row"
             justifyContent="center"
             alignItems="center"
-            spacing={1}
+            spacing={0}
             divider={<Divider orientation="vertical" flexItem />}
         >
             <FormControlLabel control={<Checkbox style={{
@@ -121,10 +121,11 @@ function CodingForm() {
             }} />} label="Beginner coding?" />
             <FormControlLabel control={<Checkbox style={{
                 color: "#FFFFFF",
-            }} />} label="Robotics?" />
+            }} />} label="Intermediate coding?" />
             <FormControlLabel control={<Checkbox style={{
                 color: "#FFFFFF",
-            }} />} label="Web development?" />
+            }} />} label="Robotics?" />
+
         </Stack>
 
         <Stack
@@ -136,7 +137,7 @@ function CodingForm() {
         >
             <FormControlLabel control={<Checkbox style={{
                 color: "#FFFFFF",
-            }} />} label="Intermediate coding?" />
+            }} />} label="Web development?" />
             <FormControlLabel control={<Checkbox style={{
                 color: "#FFFFFF"
             }} checked={checked} onChange={handleChange} />} label="" />
@@ -155,7 +156,7 @@ function CodingForm() {
         </Stack>
         <br />
         <Box textAlign='center'>
-            <Button variant='contained' type = "button">
+            <Button variant='contained' type="button">
                 Submit
             </Button>
         </Box>
