@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Anim } from "../../Animation";
 import { useTheme } from "../generic/ThemeContext";
 import { useNavigate } from "react-router-dom";
+import { FaGithub } from "react-icons/fa";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -13,26 +14,17 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import { Navigation, Pagination, Autoplay } from "swiper";
-import GridLayout from "react-grid-layout";
+import { Responsive as ResponsiveGridLayout } from "react-grid-layout";
 
-import "../../img/image1.png"
-import "../../img/elon.webp"
-import "../../img/lueken.jpg"
-import Background from "../../img/team.jpg"
+
+import Background from "../../img/team.jpeg"
+import { fontSize } from "@mui/system";
 
 function Team(props: {}) {
 
     const theme = useTheme()
     const navigate = useNavigate()
 
-    const layout = [
-        { i: "a", x: 0, y: 0, w: 1, h: 1, static: true },
-        { i: "b", x: 1, y: 0, w: 1, h: 1, static: true },
-        { i: "c", x: 2, y: 0, w: 1, h: 1, static: true },
-        { i: "d", x: 0, y: 1, w: 1, h: 1, static: true },
-        { i: "e", x: 1, y: 1, w: 1, h: 1, static: true },
-        { i: "f", x: 2, y: 1, w: 1, h: 1, static: true },
-    ];
     useEffect(() => {
         theme.setLoadState(-2)
     }, [])
@@ -58,93 +50,45 @@ function Team(props: {}) {
                         {"<"}
                     </motion.div> */}
                     </div>
-                    <GridLayout
-                        className="layout"
-                        layout={layout}
-                        cols={3}
-                        rowHeight={360}
-                        width={1335}
-                        containerPadding={[20, -10]}
-                        margin={[20, 20]}
-                    >
-                        <div key="a">
-                            <div className='profile'>
-                                <a href="https://en.wikipedia.org/wiki/Bill_Gates">
-                                    <img src={require("../../img/bill.jpg")} />
-                                </a>
-                                <figcaption className="name oxanium bold"> Bill Gates </figcaption>
-                                <figcaption className="caption oxanium"> Co-founder of Microsot, super rich. I need two lines right now. </figcaption>
+                    <div className="row">
+                        <div className="column">
+                            <div className="card">
+                                <img src={require("../../img/image1.png")} alt="Jane" />
+                                <div className="container">
+                                    <h2>Jane Doe</h2>
+                                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                                    <p>example@example.com</p>
+                                </div>
                             </div>
                         </div>
-                        <div key="b">
-                            <div className='profile'>
-                                <img src={require("../../img/lueken.jpg")} />
-                                <figcaption className="name oxanium bold"> Mr. Lueken </figcaption>
-                                <figcaption className="caption oxanium"> Award winning Mr. Lueken. Fluent at everything. </figcaption>
-                            </div>
-                        </div>
-                        <div key="c">
-                            <div className='profile'>
-                                <img src={require("../../img/tim.jpg")} />
-                                <figcaption className="name oxanium bold"> Tim Cook </figcaption>
-                                <figcaption className="caption oxanium"> Co-founder at Apple, good at making phone related stuff</figcaption>
-                            </div>
-                        </div>
-                        <div key="d">
-                            <div className='profile'>
-                                <img src={require("../../img/mark.jpg")} />
-                                <figcaption className="name oxanium bold"> Mark Zuckerberg </figcaption>
-                                <figcaption className="caption oxanium"> CEO of Facebook or META, lizard man lizard man </figcaption>
-                            </div>
-                        </div>
-                        <div key="e">
-                            <div className='profile'>
-                                <img src={require("../../img/elon.jpg")} />
-                                <figcaption className="name oxanium bold"> Elon Musk </figcaption>
-                                <figcaption className="caption oxanium"> CEO of Tesla and SpaceX. Fluent in everything. </figcaption>
-                            </div>
-                        </div>
-                    </GridLayout>
 
-                    {/* <div className="list row-bc">
-                    <div className= "img-with-text">
-                        <img src = {require("../../img/bill.jpg")} />
-                        <figcaption className = "name oxanium bold"> Bill Gates </figcaption>
-                        <figcaption className = "oxanium"> Co-founder of Microsot, super rich. I need two lines right now.</figcaption>
+                        <div className="column">
+                            <div className="card">
+                                <img src={require("../../img/bill.webp")} alt="Mike" />
+                                <div className="container">
+                                    <h2>Bill Gates</h2>
+
+                                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                                    <p>example@example.com</p>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="column">
+                            <div className="card">
+                                <img src={require("../../img/image1.png")} alt="John" />
+                                <div className="container">
+                                    <h2>John Doe</h2>
+                                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                                    <p>example@example.com</p>
+                                    <a href="https://github.com/jaepark23/xperience" ><FaGithub /> </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div className= "img-with-text">
-                    <img src = {require("../../img/lueken.jpg")} />
-                        <figcaption className = "name oxanium bold"> Mr. Lueken </figcaption>
-                        <figcaption className = "oxanium"> Award winning Mr. Lueken. Fluent at everything. </figcaption>
-                    </div>
-                    
-                    <div className= "img-with-text">
-                    <img src = {require("../../img/elon.jpg")} />
-                        <figcaption className = "name oxanium bold"> Elon Musk </figcaption>
-                        <figcaption className = "oxanium"> CEO of Tesla and SpaceX. Fluent in everything. </figcaption>
-                    </div>
-                </div>
-                
-                <div className="list row-bc">
-                    <div className= "img-with-text">
-                        <img src = {require("../../img/mark.jpg")} />
-                        <figcaption className = "name oxanium bold"> Mark Zuckerberg </figcaption>
-                        <figcaption className = "oxanium"> CEO of Facebook or META, lizard man lizard man </figcaption>
-                    </div>
-                    
-                    <div className= "img-with-text">
-                    <img src = {require("../../img/tim.jpg")} />
-                        <figcaption className = "name oxanium bold"> Tim Cook </figcaption>
-                        <figcaption className = "oxanium"> Co-founder at Apple, good at making phone related stuff</figcaption>
-                    </div>
-                    
-                    <div className= "img-with-text">
-                    <img src = {require("../../img/jeffwho.jpg")} />
-                        <figcaption className = "name oxanium bold"> Jeff Bezos </figcaption>
-                        <figcaption className = "oxanium"> CEO of Amazon @ amazon.com likes money</figcaption>
-                    </div>
-                </div> */}
+
+
                     <motion.div tabIndex={0} onClick={() => window.open("mailto:drshika.asher@vhhscougars.org")} className="click-to col-cc oxanium h6 bold w-100 text-centered" whileHover={{ boxShadow: "0 0 1rem white" }}>
                         Click to contact Drshika Asher (drshika.asher@vhhscougars.org) for more information.
                     </motion.div>
