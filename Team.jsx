@@ -14,6 +14,9 @@ import GridLayout from "react-grid-layout";
 
 import Background from "../../img/team.jpg"
 
+import { IconContext } from "react-icons";
+import { FaGithub, FaEnvelope } from 'react-icons/fa';
+
 
 function Team(props: {}) {
     const theme = useTheme()
@@ -57,7 +60,7 @@ function Team(props: {}) {
                         className="layout"
                         layout={layout}
                         cols={3}
-                        rowHeight={460}
+                        rowHeight={490}
                         width={1335}
                         containerPadding={[20, -10]}
                         margin={[20, 5]}
@@ -67,49 +70,51 @@ function Team(props: {}) {
                                 <a href="https://en.wikipedia.org/wiki/Bill_Gates">
                                     <img src={require("../../img/tymur.jpg")} />
                                 </a>
-                                <figcaption className="name oxanium bold"> Tymur Arsentiev </figcaption>
+                                <figcaption className="name oxanium bold"> Tymur Arsentiev <a href = "https://github.com/tymur999"> <FaGithub size = {".55em"}/>  </a> <a href = "mailto:tymur.arsentiev.org"> <FaEnvelope size = {".55em"} /> </a>  </figcaption>
                                 <figcaption className="caption oxanium"> capti0on </figcaption>
                             </div>
                         </div>
                         <div key="b">
                             <div className='profile'>
                                 <img src={require("../../img/rahil.jpg")} />
-                                <figcaption className="name oxanium bold"> Rahil Sheth </figcaption>
+                                <figcaption className="name oxanium bold"> Rahil Sheth <a href = "https://github.com/RahilSheth12"> <FaGithub size = {".55em"}/>  </a> <a href = "mailto:rahil.sheth@vhhscougars.org"> <FaEnvelope size = {".55em"} /> </a> </figcaption>
                                 <figcaption className="caption oxanium"> Senior in high school who is interested in computer science and math. Experience with Java, Javascript, Python, HTML/CSS, and React. Believes coding is an essential part of the modern era. Hopes to pursue a career in Software Engineering and ML/AI.  </figcaption>
                             </div>
                         </div>
                         <div key="c">
                             <div className='profile'>
                                 <img src={require("../../img/kevin.jpg")} />
-                                <figcaption className="name oxanium bold"> Kevin Ye </figcaption>
+                                <figcaption className="name oxanium bold"> Kevin Ye <a href = ""> <FaGithub size = {".55em"}/>  </a> <a href = "mailto:kevin.ye@vhhscougars.org"> <FaEnvelope size = {".55em"} /> </a>  </figcaption>
                                 <figcaption className="caption oxanium"> Senior in high school who enjoys math, science, and computer science. Favorite coding languages are Python and Java. Believes that coding is an integral part of modern society. Hopes to pursue a job in the tech industry.</figcaption>
                             </div>
                         </div>
                         <div key="d">
                             <div className='profile'>
                                 <img src={require("../../img/rudra.jpg")} />
-                                <figcaption className="name oxanium bold"> Rudra Kukian  </figcaption>
-                                <figcaption className="caption oxanium"> Senior in high school who enjoys math and computer science. Experience with Java, Javascript, Python, HTML, and CSS. Believes computers are an crucial in society. Wishes to continue to give back to the community and make sure kids have necessary resources to develop their interests. </figcaption>
+                                <figcaption className="name oxanium bold"> Rudra Kukian <a href = ""> <FaGithub size = {".55em"}/>  </a> <a href = "mailto:rudra.kukian@vhhscougars.org"> <FaEnvelope size = {".55em"} /> </a>  </figcaption>
+                                <figcaption className="caption oxanium"> Senior in high school who enjoys math and computer science. Experience with Java, Javascript, Python, HTML, and CSS. Believes computers are an crucial in society. Wishes to give back to the community and make sure kids have necessary resources to develop their interests. </figcaption>
                             </div>
                         </div>
                         <div key="e">
                             <div className='profile'>
                                 <img src={require("../../img/tanishtemp.jpg")} />
-                                <figcaption className="name oxanium bold"> Tanish Sharma </figcaption>
+                                    
+
+                                <figcaption className="name oxanium bold"> Tanish Sharma <a href = ""> <FaGithub size = {".55em"}/>  </a> <a href = "mailto:tanish.sharma@vhhscougars.org"> <FaEnvelope size = {".55em"} /> </a> </figcaption>
                                 <figcaption className="caption oxanium"> Senior in high school who enjoys math, physics, and computer science. Experience with Java, Python, HTML, and Javascript. Believes the CS industry is immense and will be essential to society in the future. Hopes to pursue a career as a software engineer.  </figcaption>
                             </div>
                         </div>
                         <div key="f">
                             <div className='profile'>
                                 <img src={require("../../img/dmitriy.PNG")} />
-                                <figcaption className="name oxanium bold"> Dmitriy Shor </figcaption>
+                                <figcaption className="name oxanium bold"> Dmitriy Shor <a href = ""> <FaGithub size = {".55em"}/>  </a> <a href = "mailto:dmitriy.shor@vhhscougars.org"> <FaEnvelope size = {".55em"} /> </a> </figcaption>
                                 <figcaption className="caption oxanium">Senior in high school who enjoys math and computer engineering. Experience with Java, Python, HTML, CSS, Javascript, and Arduino. Currently building projects with Arduinos. Hopes to pursue a robotics related career. </figcaption>
                             </div>
                         </div>
                         <div key="g">
                             <div className='profile'>
                                 <img src={require("../../img/jae.PNG")} />
-                                <figcaption className="name oxanium bold"> Jae Park </figcaption>
+                                <figcaption className="name oxanium bold"> Jae Park <a href = "https://github.com/jaepark23/xperience"> <FaGithub size = {".55em"}/>  </a> <a href = "mailto:jae.park@vhhscougars.org"> <FaEnvelope size = {".55em"} /> </a> </figcaption>
                                 <figcaption className="caption oxanium"> Senior in high school who enjoys computer science and math. Experience with Python, React, Java, Javascript, and ML. Believes CS will be vital for the future. Hopes to create a company that provides a product/service that positively impacts peoples' lives.</figcaption>
                             </div>
                         </div>
