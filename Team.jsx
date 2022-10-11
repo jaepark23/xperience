@@ -5,30 +5,33 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Anim } from "../../Animation";
 import { useTheme } from "../generic/ThemeContext";
 import { useNavigate } from "react-router-dom";
-import { FaGithub } from "react-icons/fa";
-
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
 import { Navigation, Pagination, Autoplay } from "swiper";
-import { Responsive as ResponsiveGridLayout } from "react-grid-layout";
+import GridLayout from "react-grid-layout";
 
+import Background from "../../img/team.jpg"
 
-import Background from "../../img/team.jpeg"
-import { fontSize } from "@mui/system";
 
 function Team(props: {}) {
-
     const theme = useTheme()
     const navigate = useNavigate()
 
+    const layout = [
+        { i: "a", x: 0, y: 0, w: 1, h: 1, static: true },
+        { i: "b", x: 1, y: 0, w: 1, h: 1, static: true },
+        { i: "c", x: 2, y: 0, w: 1, h: 1, static: true },
+        { i: "d", x: 0, y: 1, w: 1, h: 1, static: true },
+        { i: "e", x: 1, y: 1, w: 1, h: 1, static: true },
+        { i: "f", x: 2, y: 1, w: 1, h: 1, static: true },
+        { i: "g", x: 0, y: 2, w: 1, h: 1, static: true },
+        { i: "h", x: 1, y: 2, w: 1, h: 1, static: true },
+    ];
     useEffect(() => {
         theme.setLoadState(-2)
     }, [])
-
     return <div className="apex-users w-100 h-100 col-cc">
         <AnimatePresence>
             {theme.loadState === -2 &&
@@ -50,45 +53,67 @@ function Team(props: {}) {
                         {"<"}
                     </motion.div> */}
                     </div>
-                    <div className="row">
-                        <div className="column">
-                            <div className="card">
-                                <img src={require("../../img/image1.png")} alt="Jane" />
-                                <div className="container">
-                                    <h2>Jane Doe</h2>
-                                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                                    <p>example@example.com</p>
-                                </div>
+                    <GridLayout
+                        className="layout"
+                        layout={layout}
+                        cols={3}
+                        rowHeight={460}
+                        width={1335}
+                        containerPadding={[20, -10]}
+                        margin={[20, 5]}
+                    >
+                        <div key="a">
+                            <div className='profile'>
+                                <a href="https://en.wikipedia.org/wiki/Bill_Gates">
+                                    <img src={require("../../img/tymur.jpg")} />
+                                </a>
+                                <figcaption className="name oxanium bold"> Tymur Arsentiev </figcaption>
+                                <figcaption className="caption oxanium"> capti0on </figcaption>
                             </div>
                         </div>
-
-                        <div className="column">
-                            <div className="card">
-                                <img src={require("../../img/bill.webp")} alt="Mike" />
-                                <div className="container">
-                                    <h2>Bill Gates</h2>
-
-                                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                                    <p>example@example.com</p>
-
-                                </div>
+                        <div key="b">
+                            <div className='profile'>
+                                <img src={require("../../img/rahil.jpg")} />
+                                <figcaption className="name oxanium bold"> Rahil Sheth </figcaption>
+                                <figcaption className="caption oxanium"> Senior in high school who is interested in computer science and math. Experience with Java, Javascript, Python, HTML/CSS, and React. Believes coding is an essential part of the modern era. Hopes to pursue a career in Software Engineering and ML/AI.  </figcaption>
                             </div>
                         </div>
-
-                        <div className="column">
-                            <div className="card">
-                                <img src={require("../../img/image1.png")} alt="John" />
-                                <div className="container">
-                                    <h2>John Doe</h2>
-                                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                                    <p>example@example.com</p>
-                                    <a href="https://github.com/jaepark23/xperience" ><FaGithub /> </a>
-                                </div>
+                        <div key="c">
+                            <div className='profile'>
+                                <img src={require("../../img/kevin.jpg")} />
+                                <figcaption className="name oxanium bold"> Kevin Ye </figcaption>
+                                <figcaption className="caption oxanium"> Senior in high school who enjoys math, science, and computer science. Favorite coding languages are Python and Java. Believes that coding is an integral part of modern society. Hopes to pursue a job in the tech industry.</figcaption>
                             </div>
                         </div>
-                    </div>
-
-
+                        <div key="d">
+                            <div className='profile'>
+                                <img src={require("../../img/rudra.jpg")} />
+                                <figcaption className="name oxanium bold"> Rudra Kukian  </figcaption>
+                                <figcaption className="caption oxanium"> Senior in high school who enjoys math and computer science. Experience with Java, Javascript, Python, HTML, and CSS. Believes computers are an crucial in society. Wishes to continue to give back to the community and make sure kids have necessary resources to develop their interests. </figcaption>
+                            </div>
+                        </div>
+                        <div key="e">
+                            <div className='profile'>
+                                <img src={require("../../img/tanishtemp.jpg")} />
+                                <figcaption className="name oxanium bold"> Tanish Sharma </figcaption>
+                                <figcaption className="caption oxanium"> Senior in high school who enjoys math, physics, and computer science. Experience with Java, Python, HTML, and Javascript. Believes the CS industry is immense and will be essential to society in the future. Hopes to pursue a career as a software engineer.  </figcaption>
+                            </div>
+                        </div>
+                        <div key="f">
+                            <div className='profile'>
+                                <img src={require("../../img/dmitriy.PNG")} />
+                                <figcaption className="name oxanium bold"> Dmitriy Shor </figcaption>
+                                <figcaption className="caption oxanium">Senior in high school who enjoys math and computer engineering. Experience with Java, Python, HTML, CSS, Javascript, and Arduino. Currently building projects with Arduinos. Hopes to pursue a robotics related career. </figcaption>
+                            </div>
+                        </div>
+                        <div key="g">
+                            <div className='profile'>
+                                <img src={require("../../img/jae.PNG")} />
+                                <figcaption className="name oxanium bold"> Jae Park </figcaption>
+                                <figcaption className="caption oxanium"> Senior in high school who enjoys computer science and math. Experience with Python, React, Java, Javascript, and ML. Believes CS will be vital for the future. Hopes to create a company that provides a product/service that positively impacts peoples' lives.</figcaption>
+                            </div>
+                        </div>
+                    </GridLayout>
                     <motion.div tabIndex={0} onClick={() => window.open("mailto:drshika.asher@vhhscougars.org")} className="click-to col-cc oxanium h6 bold w-100 text-centered" whileHover={{ boxShadow: "0 0 1rem white" }}>
                         Click to contact Drshika Asher (drshika.asher@vhhscougars.org) for more information.
                     </motion.div>
@@ -97,5 +122,4 @@ function Team(props: {}) {
         </AnimatePresence>
     </div>
 }
-
 export default Team;
